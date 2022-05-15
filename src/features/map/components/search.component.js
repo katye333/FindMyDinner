@@ -16,7 +16,7 @@ export const Search = () => {
     const [searchKeyword, setSearchKeyword] = useState(keyword);
 
     useEffect(() => {
-
+        setSearchKeyword(keyword);
     }, [keyword])
 
     return (

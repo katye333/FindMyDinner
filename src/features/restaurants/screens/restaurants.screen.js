@@ -7,7 +7,7 @@ import { SafeArea } from "../../../components/utility/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
-import { FavoritesContext } from "../../../services/favorites/favorites.context";
+// import { FavoritesContext } from "../../../services/favorites/favorites.context";
 
 import { Search } from "../components/search.component";
 
@@ -30,7 +30,7 @@ const Loading = styled(ActivityIndicator)`
 
 export const RestaurantsScreen = ({ navigation }) => {
     const { restaurants, isLoading } = useContext(RestaurantsContext);
-    const { favorites } = useContext(FavoritesContext);
+    // const { favorites } = useContext(FavoritesContext);
     
     return (
         <SafeArea>

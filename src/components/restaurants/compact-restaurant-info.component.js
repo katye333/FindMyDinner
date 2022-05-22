@@ -12,6 +12,8 @@ const CompactImage = styled.Image`
 
 const CompactWebView = styled(WebView)`
     border-radius: 10px;
+    border-color: red;
+    border-width: 10px;
     width: 120px;
     height: 120px;
 `;
@@ -23,8 +25,14 @@ const Item = styled.View`
 `;
 
 const isAndroid = Platform.OS === "android";
-export const CompactRestaurantInfo = ({ restaurant }) => {
-    const Image = isAndroid ? CompactWebView : CompactImage; 
+export const CompactRestaurantInfo = ({ restaurant, useImage }) => {
+    let Image = isAndroid ? CompactWebView : CompactImage;
+    
+    // Fix for issues caused by using WebView component 
+    // in places where this should use Image (Android bug)
+    if(useImage === true) Image = CompactImage;
+    else Image = CompactWebView;
+
     return (
         <Item>
             <Image source={{uri: restaurant.photos[0]}} />

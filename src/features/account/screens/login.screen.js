@@ -5,7 +5,9 @@ import {
     AccountCover, 
     AccountContainer, 
     AuthButton,
-    AuthInput
+    AuthInput,
+    Title,
+    ErrorContainer
 } from "../components/account.styles";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -15,11 +17,11 @@ export const LoginScreen = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { onLogin, error } = useContext(AuthenticationContext);
-    console.log(error)
 
     return (
         <AccountBackground>
             <AccountCover />
+            <Title>Meals To Go</Title>
             <AccountContainer>
                 <Spacer size={"large"}>
                     <AuthInput
@@ -44,9 +46,9 @@ export const LoginScreen = () => {
                 </Spacer>
                 {
                     error.length > 0 &&
-                    <Spacer size={"large"}>
+                    <ErrorContainer size={"large"}>
                         <Text variant="error">{error}</Text>
-                    </Spacer>
+                    </ErrorContainer>
                 }
 
                 <Spacer size="large">
@@ -58,6 +60,12 @@ export const LoginScreen = () => {
                     </AuthButton>
                 </Spacer>
             </AccountContainer>
+
+            <Spacer size="large">
+                <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+                    Back
+                </AuthButton>
+            </Spacer>
         </AccountBackground>
     );
 }

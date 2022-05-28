@@ -8,16 +8,11 @@ import { RestaurantInfoCard } from "../components/restaurant-info-card.component
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { FavoritesBar } from "../../../components/favorites/favorites-bar.component";
 import { Search } from "../components/search.component";
+import { RestaurantList } from "../components/restaurant-list.styles";
 
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavoritesContext } from "../../../services/favorites/favorites.context";
 
-// FlatList needs the style to be applied to the contentContainerStyle
-const RestaurantList = styled(FlatList).attrs({
-    contentContainerStyle: {
-        padding: 16,
-    }
-})``;
 
 const LoadingContainer = styled.View`
     position: absolute;

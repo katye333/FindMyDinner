@@ -10,6 +10,16 @@ export const AuthenticationContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState([]);
 
+    firebase.auth().onAuthStateChanged(u => {
+        if (u) {
+            setUser(u);
+            setIsLoading(false);
+        }
+        else {
+            setIsLoading(false);
+        }
+    });
+
     const onLogin = (email, password) => {
 
         setIsLoading(true);
@@ -25,12 +35,15 @@ export const AuthenticationContextProvider = ({ children }) => {
     };
 
     const onRegister = (email, password, repeatedPassword) => {
+        setIsLoading(true);
         if (password !== repeatedPassword) {
             setError("Error: Password do not match!");
             return;
         }
+        
         firebase
-            .auth().createUserWithEmailAndPassword(email, password)
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
             .then(u => {
                 setUser(u);
                 setIsLoading(false);
@@ -41,6 +54,11 @@ export const AuthenticationContextProvider = ({ children }) => {
             });
     }
 
+    const onLogout = () => {
+        setUser(null);
+        firebase.auth().signOut();
+    };
+
     return (
         <AuthenticationContext.Provider 
             value={{
@@ -49,7 +67,8 @@ export const AuthenticationContextProvider = ({ children }) => {
                 isLoading,
                 error,
                 onLogin,
-                onRegister
+                onRegister,
+                onLogout,
             }}>
             {children}
         </AuthenticationContext.Provider>

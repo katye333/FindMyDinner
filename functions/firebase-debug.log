@@ -1,0 +1,56 @@
+[debug] [2022-06-04T19:22:29.463Z] ----------------------------------------------------------------------
+[debug] [2022-06-04T19:22:29.465Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\katye\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2022-06-04T19:22:29.465Z] CLI Version:   11.0.1
+[debug] [2022-06-04T19:22:29.465Z] Platform:      win32
+[debug] [2022-06-04T19:22:29.466Z] Node Version:  v16.15.0
+[debug] [2022-06-04T19:22:29.467Z] Time:          Sat Jun 04 2022 15:22:29 GMT-0400 (Eastern Daylight Time)
+[debug] [2022-06-04T19:22:29.467Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-04T19:22:29.562Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-04T19:22:29.563Z] > authorizing via signed-in user (katye333@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2022-06-04T19:22:29.584Z] [hub] writing locator at C:\Users\katye\AppData\Local\Temp\hub-mealstogo-meow.json
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[info] +  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-06-04T19:22:29.623Z] defaultcredentials: writing to file C:\Users\katye\AppData\Roaming\firebase\katye333_gmail_com_application_default_credentials.json
+[debug] [2022-06-04T19:22:29.625Z] Setting GAC to C:\Users\katye\AppData\Roaming\firebase\katye333_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\katye\\AppData\\Roaming\\firebase\\katye333_gmail_com_application_default_credentials.json"}}
+[debug] [2022-06-04T19:22:29.628Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mealstogo-meow/adminSdkConfig [none]
+[debug] [2022-06-04T19:22:29.968Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mealstogo-meow/adminSdkConfig 200
+[debug] [2022-06-04T19:22:29.969Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mealstogo-meow/adminSdkConfig {"projectId":"mealstogo-meow","storageBucket":"mealstogo-meow.appspot.com"}
+[debug] [2022-06-04T19:22:29.996Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-06-04T19:22:29.996Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-06-04T19:22:29.996Z] Starting Emulator UI with command {"binary":"node","args":["--dns-result-order=ipv4first","C:\\Users\\katye\\.cache\\firebase\\emulators\\ui-v1.7.0\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"--dns-result-order=ipv4first\",\"C:\\\\Users\\\\katye\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.7.0\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-06-04T19:22:30.151Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "C:\Users\katye\Desktop\Projects\MealsToGo\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\katye\\Desktop\\Projects\\MealsToGo\\functions\" for Cloud Functions..."}}
+[debug] [2022-06-04T19:22:30.288Z] Validating nodejs source
+[debug] [2022-06-04T19:22:33.323Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-06-04T19:22:33.323Z] Building nodejs source
+[debug] [2022-06-04T19:22:33.323Z] Analyzing nodejs backend spec
+[debug] [2022-06-04T19:22:33.328Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-06-04T19:22:33.328Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-06-04T19:22:33.331Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-06-04T19:22:33.332Z] Could not find functions.yaml. Must use http discovery

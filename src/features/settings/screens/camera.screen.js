@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { Camera } from "expo-camera";
 import styled from "styled-components/native";
 import { Text } from "../../../components/typography/text.component";
@@ -13,6 +14,13 @@ const ProfileCamera = styled(Camera)`
 export const CameraScreen = () => {
     const [hasPermission, setHasPermission] = useState(null);
     const cameraRef = useRef();
+
+    const snap = async () => {
+        if (cameraRef) {
+            const photo = await cameraRef.current.takePictureAsync();
+            console.log(photo);
+        }
+    };
 
     useEffect(() => {
         (async () => {
@@ -30,10 +38,13 @@ export const CameraScreen = () => {
     }
 
     return (
-        <ProfileCamera
-            ref={cam => cameraRef.current = cam}
-            type={Camera.Constants.Type.front}>
+        <TouchableOpacity onPress={snap}>
+            <ProfileCamera
+                ref={cam => cameraRef.current = cam}
+                ratio={"16:9"}
+                type={Camera.Constants.Type.front}>
 
-        </ProfileCamera>
+            </ProfileCamera>
+        </TouchableOpacity>
     )
 };

@@ -6,4 +6,4 @@ const localHost = 'https://0281-72-184-186-170.ngrok.io/mealstogo-meow/us-centra
 
 export const isDevelopment = process.env.NODE_ENV === 'development';
 
-export const host = isDevelopment ? localHost : liveHost;
+export const host = !isDevelopment ? localHost : liveHost;

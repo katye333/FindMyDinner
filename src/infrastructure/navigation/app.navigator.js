@@ -2,6 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
+import { CheckoutScreen } from "../../features/checkout/screens/checkout.screen";
 import { MapScreen } from "../../features/map/screens/map.screen";
 import { SettingsNavigator } from "./settings.navigator";
 import { RestaurantsNavigator } from "./restaurants.navigator";
@@ -15,6 +16,7 @@ const Tab = createBottomTabNavigator();
 const TAB_ICON = {
     Restaurants: "md-restaurant",
     Map: "md-map",
+    Checkout: "md-cart",
     Settings: "md-settings",
 };
 
@@ -42,6 +44,7 @@ export const AppNavigator = () => {
                             inactiveTintColor: "gray",
                         }}>
                         <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+                        <Tab.Screen name="Checkout" component={CheckoutScreen} />
                         <Tab.Screen name="Map" component={MapScreen} />
                         <Tab.Screen name="Settings" component={SettingsNavigator} />
                     </Tab.Navigator>

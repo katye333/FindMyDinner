@@ -8,7 +8,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { OrderButton } from "../../restaurants/components/restaurant-list.styles";
 import { CartContext } from "../../../services/cart/cart.context";
 
-export const RestaurantDetailScreen = ({ route }) => {
+export const RestaurantDetailScreen = ({ navigation, route }) => {
     const [breakfastExpanded, setBreakfastExpanded] = useState(false);
     const [lunchExpanded, setLunchExpaned] = useState(false);
     const [dinnerExpanded, setDinnerExpaned] = useState(false);
@@ -68,7 +68,10 @@ export const RestaurantDetailScreen = ({ route }) => {
 
             <Spacer position={"bottom"} size={"large"}>
                 <OrderButton 
-                    onPress={() => addToCart({item: "special", price: 1299}, restaurant)}
+                    onPress={() => {
+                        addToCart({item: "special", price: 1299}, restaurant);
+                        navigation.navigate("Checkout");
+                    }}
                     icon="cash-usd"
                     mode="contained">
                     Order Special Only $12.99!

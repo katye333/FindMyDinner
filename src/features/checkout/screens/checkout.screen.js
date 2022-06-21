@@ -19,7 +19,7 @@ import {
     PaymentProcessing
 } from "../components/checkout.styles";
 
-export const CheckoutScreen = () => {
+export const CheckoutScreen = ({ navigation }) => {
     const { cart, restaurant, clearCart, sum } = useContext(CartContext);
     const [name, setName] = useState("");
     const [card, setCard] = useState(null);
@@ -28,16 +28,19 @@ export const CheckoutScreen = () => {
     const onPay = () => {
         setIsLoading(true);
         if (!card || !card.id) {
-            console.log('No card or card ID');
             setIsLoading(false);
+            navigation.navigate("CheckoutError", { error: "Please fill in a valid credit card."});
             return;
         }
         payRequest(card.id, sum, name)
         .then(result => {
             setIsLoading(false);
+            clearCart();
+            navigation.navigate("CheckoutSuccess");
         })
-        .catch(error => {
+        .catch(err => {
             setIsLoading(false);
+            navigation.navigate("CheckoutError", { error: err });
         })
     }
 
@@ -85,7 +88,7 @@ export const CheckoutScreen = () => {
                 <Spacer position={"top"} size={"large"}>
                     {
                         name.length > 0 &&
-                        <CreditCardInput name={name} onSuccess={setCard} />
+                        <CreditCardInput name={name} onSuccess={setCard} onError={() => navigation.navigate("CheckoutError", { error: "Something went wrong processing your credit card." })} />
                     }
                 </Spacer>
 

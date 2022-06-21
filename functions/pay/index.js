@@ -18,6 +18,6 @@ module.exports.payRequest = (request, response, stripeClient) => {
     }).catch(error => {
         console.log(error);
         response.status(400);
-        response.send(e);
-    });
+        response.send(error);
+    })
 }

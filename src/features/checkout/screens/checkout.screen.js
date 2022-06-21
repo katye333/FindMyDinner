@@ -9,6 +9,7 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { CartContext } from "../../../services/cart/cart.context";
 
 import { RestaurantInfoCard } from "../../restaurants/components/restaurant-info-card.component";
+import { payRequest } from "../../../services/checkout/checkout.service";
 import { 
     CartIconContainer, 
     CartIcon, 
@@ -20,6 +21,15 @@ import {
 export const CheckoutScreen = () => {
     const { cart, restaurant, clearCart, sum } = useContext(CartContext);
     const [name, setName] = useState("");
+    const [card, setCard] = useState(null);
+
+    const onPay = () => {
+        if (!card || !card.id) {
+            console.log('No card or card ID');
+            return;
+        }
+        payRequest(card.id, sum, name);
+    }
 
     if (!cart.length || !restaurant) {
         return (
@@ -61,12 +71,19 @@ export const CheckoutScreen = () => {
                 <Spacer position={"top"} size={"large"}>
                     {
                         name.length > 0 &&
-                        <CreditCardInput name={name} />
+                        <CreditCardInput name={name} onSuccess={setCard} />
                     }
                 </Spacer>
 
                 <Spacer position={"top"} size={"xxl"} />
-                <PayButton icon="cash-usd" mode="contained" onPress={() => console.log('pay now')}>Pay</PayButton>
+                <PayButton 
+                    icon="cash-usd" 
+                    mode="contained" 
+                    onPress={() => {
+                        onPay();
+                    }}>
+                        Pay
+                </PayButton>
                 
                 <Spacer position={"top"} size={"large"}>
                     <ClearButton icon="cart-off" mode="contained" onPress={clearCart}>Clear Cart</ClearButton>

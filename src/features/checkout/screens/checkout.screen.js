@@ -69,9 +69,9 @@ export const CheckoutScreen = ({ navigation }) => {
                     </Spacer>
                     <List.Section>
                         {
-                            cart.map(({ item, price }) => {
+                            cart.map(({ item, price }, index) => {
                                 return (
-                                    <List.Item title={`${item} - ${price / 100}`} />
+                                    <List.Item key={index} title={`${item} - ${price / 100}`} />
                                 )
                             })
                         }

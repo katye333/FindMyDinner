@@ -15,20 +15,30 @@ import {
     CartIcon, 
     NameInput,
     PayButton,
-    ClearButton 
+    ClearButton,
+    PaymentProcessing
 } from "../components/checkout.styles";
 
 export const CheckoutScreen = () => {
     const { cart, restaurant, clearCart, sum } = useContext(CartContext);
     const [name, setName] = useState("");
     const [card, setCard] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const onPay = () => {
+        setIsLoading(true);
         if (!card || !card.id) {
             console.log('No card or card ID');
+            setIsLoading(false);
             return;
         }
-        payRequest(card.id, sum, name);
+        payRequest(card.id, sum, name)
+        .then(result => {
+            setIsLoading(false);
+        })
+        .catch(error => {
+            setIsLoading(false);
+        })
     }
 
     if (!cart.length || !restaurant) {
@@ -45,6 +55,10 @@ export const CheckoutScreen = () => {
     return (
         <SafeArea>
             <RestaurantInfoCard restaurant={restaurant} />
+            {
+                isLoading &&
+                <PaymentProcessing />
+            }
             <ScrollView>
                 <Spacer position={"left"} size={"medium"}>
                     <Spacer position={"top"} size={"large"}>
@@ -76,7 +90,8 @@ export const CheckoutScreen = () => {
                 </Spacer>
 
                 <Spacer position={"top"} size={"xxl"} />
-                <PayButton 
+                <PayButton
+                    disabled={isLoading}
                     icon="cash-usd" 
                     mode="contained" 
                     onPress={() => {
@@ -86,7 +101,7 @@ export const CheckoutScreen = () => {
                 </PayButton>
                 
                 <Spacer position={"top"} size={"large"}>
-                    <ClearButton icon="cart-off" mode="contained" onPress={clearCart}>Clear Cart</ClearButton>
+                    <ClearButton disabled={isLoading} icon="cart-off" mode="contained" onPress={clearCart}>Clear Cart</ClearButton>
                 </Spacer>
             </ScrollView>
         </SafeArea>

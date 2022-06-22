@@ -1,5 +1,5 @@
 import React, { useContext, useState, useCallback } from "react";
-import { TouchableOpacity, SafeAreaView, StatusBar } from "react-native";
+import { TouchableOpacity, SafeAreaView, StatusBar, Alert } from "react-native";
 import styled from "styled-components/native";
 import { List, Avatar } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -77,13 +77,13 @@ export const SettingsScreen = ({ navigation}) => {
                     <SettingsItem 
                         title="Payment"
                         left={(props) => <List.Icon {...props} color={colors.ui.secondary} icon="cart" />}
-                        onPress={() => null}
+                        onPress={() => Alert.alert("Info", "This feature is coming in a feature release! Stay tuned!")}
                     />
                     <Spacer />
                     <SettingsItem 
                         title="Past Orders"
                         left={(props) => <List.Icon {...props} color={colors.ui.secondary} icon="history" />}
-                        onPress={() => null}
+                        onPress={() => Alert.alert("Info", "This feature is coming in a future release! Stay tuned!")}
                     />
                     <Spacer />
                     <SettingsItem 

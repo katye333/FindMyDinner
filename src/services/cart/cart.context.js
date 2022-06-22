@@ -7,7 +7,6 @@ export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
     const { user } = useContext(AuthenticationContext);
-
     const [cart, setCart] = useState([]);
     const [restaurant, setRestaurant] = useState(null);
 
@@ -15,11 +14,11 @@ export const CartContextProvider = ({ children }) => {
 
     const saveCart = async (rst, crt, uid) => {
         try {
-            const jsonValue = JSON.stringify({ restaurant: rst, cart: crt});
+            const jsonValue = JSON.stringify({ restaurant: rst, cart: crt });
             await AsyncStorage.setItem(`@cart-${uid}`, jsonValue);
-        }
+        } 
         catch (e) {
-            console.log("Error storing data: ", e);
+            console.log("error storing", e);
         }
     };
 
@@ -31,17 +30,11 @@ export const CartContextProvider = ({ children }) => {
                 setRestaurant(rst);
                 setCart(crt);
             }
-        }
+        } 
         catch (e) {
-            console.log("Error retrieving data: ", e);
+            console.log("error storing", e);
         }
-    }
-
-    useEffect(() => {
-        if (user && user.uid) {
-            saveCart(restaurant, cart, user.uid);
-        }
-    }, [restaurant, cart, user]);
+    };
 
     useEffect(() => {
         if (user && user.uid) {
@@ -50,22 +43,27 @@ export const CartContextProvider = ({ children }) => {
     }, [user]);
 
     useEffect(() => {
+        if (user && user.uid) {
+            saveCart(restaurant, cart, user.uid);
+        }
+    }, [restaurant, cart, user]);
+
+    useEffect(() => {
         if (!cart.length) {
             setSum(0);
             return;
         }
-        
-        const newSum = cart.reduce((acc, {price}) => {
-            return acc += price;
+        const newSum = cart.reduce((acc, { price }) => {
+            return (acc += price);
         }, 0);
         setSum(newSum);
     }, [cart]);
 
-    const add = (item, rest) => {
-        if (!restaurant || restaurant.placeId !== rest.placeId) {
-            setRestaurant(rest);
+    const add = (item, rst) => {
+        if (!restaurant || restaurant.placeId !== rst.placeId) {
+            setRestaurant(rst);
             setCart([item]);
-        }
+        } 
         else {
             setCart([...cart, item]);
         }
@@ -77,14 +75,15 @@ export const CartContextProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{
-            addToCart: add,
-            clearCart: clear,
-            restaurant,
-            cart,
-            sum
-        }}>
-            {children}
+        <CartContext.Provider
+            value={{
+                addToCart: add,
+                clearCart: clear,
+                restaurant,
+                cart,
+                sum,
+            }}>
+        {children}
         </CartContext.Provider>
-    )
-}
+    );
+};

@@ -49,7 +49,10 @@ export const CheckoutScreen = ({ navigation }) => {
             <SafeArea>
                 <CartIconContainer>
                     <CartIcon icon="cart-off" />
-                    <Text>Your cart is empty!</Text>
+
+                    <Spacer position={"top"} size={"large"}>
+                        <Text>Your cart is empty!</Text>
+                    </Spacer>
                 </CartIconContainer>
             </SafeArea>
         )

@@ -1,5 +1,5 @@
 import React, {useState, useContext} from "react";
-import { List } from "react-native-paper";
+import { List, Divider } from "react-native-paper";
 import { ScrollView } from "react-native";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
@@ -29,10 +29,13 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
                     onPress={() => setBreakfastExpanded(!breakfastExpanded)}>
                     
                     <List.Item title="Eggs Benedict" />
+                    <Divider />
                     <List.Item title="Strawberry Crepes" />
+                    <Divider />
                     <List.Item title="Classic Breakfast" />
+                    <Divider />
                 </List.Accordion>
-
+                <Divider />
                 <List.Accordion
                     title="Lunch"
                     left={props => <List.Icon {...props} icon="hamburger" />}
@@ -40,9 +43,11 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
                     onPress={() => setLunchExpaned(!lunchExpanded)}>
                     
                     <List.Item title="Club Sandwich" />
+                    <Divider />
                     <List.Item title="Cheeseburger" />
+                    <Divider />
                 </List.Accordion>
-
+                <Divider />
                 <List.Accordion
                     title="Dinner"
                     left={props => <List.Icon {...props} icon="food-variant" />}
@@ -50,9 +55,10 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
                     onPress={() => setDinnerExpaned(!dinnerExpanded)}>
 
                     <List.Item title="Beef Strognoff" />
+                    <Divider />
                     <List.Item title="Meatloaf with Potatoes and Vegetables" />
                 </List.Accordion>
-
+                <Divider />
                 <List.Accordion
                     title="Drinks"
                     left={props => <List.Icon {...props} icon="cup" />}
@@ -60,8 +66,11 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
                     onPress={() => setDrinkExpaned(!drinkExpanded)}>
                     
                     <List.Item title="Miller Highlife" />
+                    <Divider />
                     <List.Item title="Wine (Red or White)" />
+                    <Divider />
                     <List.Item title="Tea" />
+                    <Divider />
                     <List.Item title="Coke Products" />
                 </List.Accordion>
             </ScrollView>

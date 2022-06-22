@@ -4,6 +4,8 @@ import { Card } from "react-native-paper";
 // styled component need webdev css 
 export const RestaurantCard = styled(Card)`
     background-color: ${props => props.theme.colors.bg.primary};
+    width: 95%;
+    align-self: center;
 `;
 
 // Needs parathesis because there is a dot already

@@ -31,6 +31,8 @@ const createScreenOptions = ({ route }) => {
             <Ionicons name={iconName} size={size} color={color} />
         ),
         headerShown: false,
+        tabBarActiveTintColor: colors.brand.primary,
+        tabBarInactiveTintColor: colors.brand.muted
     };
 };
 
@@ -41,12 +43,7 @@ export const AppNavigator = () => {
             <LocationContextProvider>
                 <RestaurantsContextProvider>
                     <CartContextProvider>
-                        <Tab.Navigator
-                            screenOptions={createScreenOptions}
-                            tabBarOptions={{
-                                activeTintColor: colors.brand.primary,
-                                inactiveTintColor: colors.brand.muted,
-                            }}>
+                        <Tab.Navigator screenOptions={createScreenOptions}>
                             <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
                             <Tab.Screen name="Checkout" component={CheckoutNavigator} />
                             <Tab.Screen name="Map" component={MapScreen} />

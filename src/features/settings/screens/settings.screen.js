@@ -27,7 +27,7 @@ const TransparentSafeArea = styled(SafeAreaView)`
 
 const SettingsItem = styled(List.Item)`
     padding: ${props => props.theme.space[3]};
-    background-color: rgba(255,255,255,0.4)
+    background-color: rgba(255,255,255,0.8);
 `;
 const AvatarContainer = styled.View`
     align-items: center;

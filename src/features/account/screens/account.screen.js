@@ -26,7 +26,7 @@ export const AccountScreen = ({ navigation }) => {
                 />
             </AnimationWrapper>
 
-            <Title>Meals To Go</Title>
+            <Title>Find my dinner</Title>
             <AccountContainer>
                 <AuthButton 
                     icon="lock-open-outline"

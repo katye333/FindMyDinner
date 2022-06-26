@@ -12,7 +12,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { colors } from "../../../infrastructure/theme/colors";
 
 const SettingsBackground = styled.ImageBackground.attrs({
-    source: require('../../../../assets/home_bg.jpg')
+    source: require('../../../../assets/background.jpg')
 })`
     position: absolute;
     height: 100%;

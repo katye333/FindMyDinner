@@ -4,7 +4,7 @@ import { colors } from "../../../infrastructure/theme/colors";
 import { Text } from "../../../components/typography/text.component";
 
 export const AccountBackground = styled.ImageBackground.attrs({
-    source: require("../../../../assets/home_bg.jpg"),
+    source: require("../../../../assets/background.jpg"),
 })`
     flex: 1;
     align-items: center;

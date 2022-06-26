@@ -30,6 +30,7 @@ const SettingsItem = styled(List.Item)`
     background-color: rgba(255,255,255,0.8);
 `;
 const AvatarContainer = styled.View`
+    margin-top: 20px;
     align-items: center;
 `;
 export const SettingsScreen = ({ navigation}) => {

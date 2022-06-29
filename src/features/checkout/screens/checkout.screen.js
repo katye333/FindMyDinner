@@ -18,6 +18,7 @@ import {
     ClearButton,
     PaymentProcessing
 } from "../components/checkout.styles";
+import { colors } from "../../../infrastructure/theme/colors";
 
 export const CheckoutScreen = ({ navigation }) => {
     const { cart, restaurant, clearCart, sum } = useContext(CartContext);

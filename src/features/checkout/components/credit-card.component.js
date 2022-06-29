@@ -1,5 +1,6 @@
 import React from "react";
 import { LiteCreditCardInput } from "react-native-credit-card-input";
+import { colors } from "../../../infrastructure/theme/colors";
 import { cardTokenRequest } from "../../../services/checkout/checkout.service";
 
 export const CreditCardInput = ({ name, onSuccess, onError }) => {
@@ -27,5 +28,5 @@ export const CreditCardInput = ({ name, onSuccess, onError }) => {
         }
     };
     
-    return <LiteCreditCardInput onChange={onChange} />;
+    return <LiteCreditCardInput onChange={onChange} validColor={colors.brand.primary} invalidColor={colors.brand.primary} />;
 };

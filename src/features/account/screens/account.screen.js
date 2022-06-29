@@ -1,11 +1,10 @@
 import React from "react";
-
+import { Text } from "react-native";
 import { 
     AccountBackground, 
     AccountCover, 
     AccountContainer, 
     AuthButton,
-    Title,
     AnimationWrapper
 } from "../components/account.styles";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -26,7 +25,7 @@ export const AccountScreen = ({ navigation }) => {
                 />
             </AnimationWrapper>
 
-            <Title>Find my dinner</Title>
+            <Text style={{fontFamily: "Comfortaa_400Regular", fontSize: 30}}>Find my dinner</Text>
             <AccountContainer>
                 <AuthButton 
                     icon="lock-open-outline"

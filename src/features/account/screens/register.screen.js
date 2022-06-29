@@ -9,9 +9,10 @@ import {
     Title,
     ErrorContainer
 } from "../components/account.styles";
-import { Text } from "../../../components/typography/text.component";
+import { Text } from "react-native";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
+import { colors } from "../../../infrastructure/theme/colors";
 
 export const RegisterScreen = ({navigation}) => {
     const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ export const RegisterScreen = ({navigation}) => {
     return (
         <AccountBackground>
             <AccountCover />
-            <Title>Find my dinner</Title>
+            <Text style={{fontFamily: "Comfortaa_400Regular", fontSize: 30}}>Find my dinner</Text>
             <AccountContainer>
                 <Spacer size={"large"}>
                     <AuthInput
@@ -59,7 +60,7 @@ export const RegisterScreen = ({navigation}) => {
                 {
                     error.length > 0 &&
                     <ErrorContainer size={"large"}>
-                        <Text variant="error">{error}</Text>
+                        <Text style={{color: colors.ui.error, fontWeight: '800'}}>{error}</Text>
                     </ErrorContainer>
                 }
 

@@ -1114,6 +1114,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@expo-google-fonts/comfortaa@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/comfortaa/-/comfortaa-0.2.2.tgz#c144b83e4f596446cb7a35bffbc50390796fbf23"
+  integrity sha512-onCKZ3igXI1DRwUBW4gaT5dsFysMGd7eXlUzJQWPgaF8l2LuUib9zNRxEiZHYgx9CQ17bP400ORRlfYo033whQ==
+
 "@expo-google-fonts/lato@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/lato/-/lato-0.2.2.tgz#777a757a74c03a2677ed33dacd7df61cd65b735e"

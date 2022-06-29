@@ -23,6 +23,7 @@ export const PayButton = styled(Button).attrs({
 })`
     width: 80%;
     align-self: center;
+    font-family: ${props => props.theme.fonts.body};
     padding: ${props => props.theme.space[2]};
 `;
 
@@ -31,6 +32,7 @@ export const ClearButton = styled(Button).attrs({
 })`
     width: 80%;
     align-self: center;
+    font-family: ${props => props.theme.fonts.body};
     padding: ${props => props.theme.space[2]};
 `;
 

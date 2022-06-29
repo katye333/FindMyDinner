@@ -13,26 +13,30 @@ const defaultTextStyles = (theme) => `
 
 const body = (theme) => `
     font-size: ${theme.fontSizes.body};
+    font-family: ${theme.fonts.body};
 `;
 
 const label = (theme) => `
-    font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.body};
     font-weight: ${theme.fontWeights.medium};
+    font-family: ${theme.fonts.body};
 `;
 
 const caption = (theme) => `
     font-size: ${theme.fontSizes.caption};
     font-weight: ${theme.fontWeights.bold};
+    font-family: ${theme.fonts.body};
 `;
 
 
 const error = (theme) => `
     color: ${theme.colors.text.error};
+    font-family: ${theme.fonts.body};
 `;
 
 const hint = (theme) => `
     font-size: ${theme.fontSizes.body};
+    font-family: ${theme.fonts.body};
 `;
 
 const variants = {

@@ -70,6 +70,7 @@ export const SettingsScreen = ({ navigation}) => {
                 <Spacer position={"top"} size={"large"} />
                 <List.Section>
                     <SettingsItem
+                        titleStyle={{fontFamily: `${props => props.theme.fonts.body}`}}
                         title="View Your Favorites"
                         left={(props) => <List.Icon {...props} color={colors.ui.error} icon="heart" />}
                         onPress={() => navigation.navigate("Favorites")}

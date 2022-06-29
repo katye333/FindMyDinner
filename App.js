@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
-import { useFonts as useOswald, Oswald_400Regular } from "@expo-google-fonts/oswald";
+import { useFonts as useComfortaa, Comfortaa_400Regular } from "@expo-google-fonts/comfortaa";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { theme } from "./src/infrastructure/theme";
 
@@ -23,15 +23,15 @@ if (!firebase.apps.length) {
 }
 
 export default function App() {
-    const [oswaldLoaded] = useOswald({
-        Oswald_400Regular,
+    const [comfortaaLoaded] = useComfortaa({
+        Comfortaa_400Regular,
     });
 
     const [latoLoaded] = useLato({
         Lato_400Regular,
     });
 
-    if (!oswaldLoaded || !latoLoaded) {
+    if (!comfortaaLoaded || !latoLoaded) {
         return null;
     }
 

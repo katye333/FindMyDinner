@@ -59,6 +59,26 @@ export const AuthenticationContextProvider = ({ children }) => {
         firebase.auth().signOut();
     };
 
+    const onDelete = async (password) => {
+        setIsLoading(true);
+        let currentUser = firebase.auth().currentUser;
+        const credential = firebase.auth.EmailAuthProvider.credential(
+            user.email,
+            password
+        );
+        user.reauthenticateWithCredential(credential).then(() => {
+            user.delete()
+            .then(() => {
+                setUser(null);
+                setIsLoading(false);
+            }).catch((error) => {
+                setIsLoading(false);
+                setError(error.toString());
+            });
+        })
+        .catch(e => console.log(e))
+    }
+
     return (
         <AuthenticationContext.Provider 
             value={{
@@ -69,6 +89,7 @@ export const AuthenticationContextProvider = ({ children }) => {
                 onLogin,
                 onRegister,
                 onLogout,
+                onDelete,
             }}>
             {children}
         </AuthenticationContext.Provider>
